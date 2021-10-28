@@ -56,4 +56,4 @@ contract LiquidityPool is ERC20 {
     IERC20(token1).transfer(msg.sender, amount1);
   }
 }
-*/Working progress/*
+*/Working progress */
