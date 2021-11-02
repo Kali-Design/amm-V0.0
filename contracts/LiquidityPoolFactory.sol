@@ -26,4 +26,10 @@ contract LiquidityPoolFactory {
         getPair[token1][token0] = address(pool); // populate mapping in the reverse direction
         
     }
+
+    function setFeeTo(address _feeTo) override external {
+        require(msg.sender == feeToSetter, "UniswapV2: FORBIDDEN");
+        feeTo = _feeTo;
+    }
+
 }
