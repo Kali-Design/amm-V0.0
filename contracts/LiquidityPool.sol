@@ -11,7 +11,7 @@ ontract LiquidityPool is ERC20 {
   uint private _reserve0;
   uint private _reserve1;
 
-  constructor(address token0_, address token1_) ERC20("LiquidityPool", "John-LP") {
+  constructor(address token0_, address token1_) ERC20("LiquidityPool", "Harry-LP") {
     token0 = token0_;
     token1 = token1_;
   }
