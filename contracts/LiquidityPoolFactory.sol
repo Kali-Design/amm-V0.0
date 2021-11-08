@@ -4,7 +4,7 @@ pragma solidity ^0.8.6;
 
 import "./LiquidityPool.sol";
 
-contract LiquidityPoolFactory {
+contract LiquidityPoolFactory is ILiquidityPoolFactory {
     address public override feeTo;
     address public override feeToSetter;
 
@@ -13,6 +13,10 @@ contract LiquidityPoolFactory {
 
     constructor(address _feeToSetter) {
         feeToSetter = _feeToSetter;
+    }
+
+    function allPairsLength() external view override returns (uint) {
+        return allPairs.length;
     }
 
     function createPair(address tokenA, address tokenB) external override returns (LiquidityPool) {
@@ -24,7 +28,9 @@ contract LiquidityPoolFactory {
         LiquidityPool pool = new LiquidityPool(tokenA, tokenB);
         getPair[token0][token1] = address(pool);
         getPair[token1][token0] = address(pool); // populate mapping in the reverse direction
-        
+        allPairs.push(address(pool));
+        emit PairCreated(token0, token1, address(pool), allPairs.length);
+        return pool;
     }
 
     function setFeeTo(address _feeTo) override external {
@@ -32,4 +38,12 @@ contract LiquidityPoolFactory {
         feeTo = _feeTo;
     }
 
+    function setFeeToSetter(address _feeToSetter) external override {
+        require(msg.sender == feeToSetter, "UniswapV2: FORBIDDEN");
+        feeToSetter = _feeToSetter;
+    }
+
+    function getPool(address token0_, address token1_) external view returns (address) {
+        return getPair[token0_][token1_];
+    }
 }
