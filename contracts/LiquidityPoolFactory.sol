@@ -4,7 +4,7 @@ pragma solidity ^0.8.6;
 import "./interfaces/SmartLiquidityPool_factory.sol";
 import "./LiquidityPool.sol";
 
-contract LiquidityPoolFactory is ILiquidityPoolFactory {
+contract LiquidityPoolFactory is SmartLiquidityPoolFactory {
     address public override feeTo;
     address public override feeToSetter;
 
