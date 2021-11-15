@@ -4,7 +4,7 @@ pragma solidity ^0.8.6;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-ontract LiquidityPool is ERC20 {
+contract LiquidityPool is ERC20 {
   address public token0;
   address public token1;
 
