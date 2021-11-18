@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-expressions */
 const { accounts, contract } = require('@openzeppelin/test-environment');
-
 const { time } = require('@openzeppelin/test-helpers');
-
 const { expect } = require('chai');
 
 const LiquidityPool = contract.fromArtifact('LiquidityPool');
