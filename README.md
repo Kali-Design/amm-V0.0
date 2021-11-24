@@ -9,6 +9,7 @@
 
 - Working progress - New project october 2021
 - Smart Contract Smart DeFi : Liquidity Pool
+- Tests unitaires : Chai
 
 ## Auteur
 
