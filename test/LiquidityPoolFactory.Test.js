@@ -7,7 +7,7 @@ const LiquidityPoolFactory = contract.fromArtifact('LiquidityPoolFactory');
 
 describe('LiquidityPoolFactory', async function () {
   const [dev, owner, user1] = accounts;
-  const MESSAGE = 'WELCOME TO MY COURSES';
+  const MESSAGE = 'WELCOME TO MY LIQUIDITY';
   const _MESSAGE = 'NEW MESSAGE';
 
   context('LiquidityPoolFactory initial state', function () {
@@ -47,7 +47,7 @@ describe('LiquidityPoolFactory', async function () {
       expect(await this.liquiditypoolfactory.goodbye({ from: user1 })).to.equal('not finished yet!!');
     });
 
-    it('handles finished courses', async function () {
+    it('handles finished liqudity', async function () {
       await time.increase(time.duration.weeks(24));
       expect(await liquiditypoolfactory.goodbye({ from: user1 })).to.equal('congratulations and goodbye!!');
     });
